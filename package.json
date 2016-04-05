@@ -1,0 +1,17 @@
+{
+    "name": "mf-semantic-ui-calendar",
+    "version": "0.0.4",
+    "description": "Calendar for Semantic UI",
+    "author": "Matchesfashion.com",
+    "dependencies": {
+        "jquery": "^2.2.2",
+        "semantic-ui-popup": "^2.1.7",
+        "semantic-ui-dropdown": "^2.1.7",
+        "react": "^0.14.7"
+    },
+    "browserify": {
+        "transform": [
+            [ "babelify", { "presets": [ "es2015", "react", "stage-0" ] } ]
+        ]
+    }
+}
