@@ -125,7 +125,7 @@ export default class Calendar extends React.Component {
                 <div className="ui calendar" ref="calendar">
                     <div className="ui input left icon">
                         <i className="calendar icon" />
-                        <input type="text" placeholder="Choose Date..." />
+                        <input type="text" placeholder="Choose Date..." disabled={this.props.disabled} />
                     </div>
                 </div>
             </InlineCSS>
@@ -136,4 +136,5 @@ export default class Calendar extends React.Component {
 Calendar.propTypes = {
     onChange: PropTypes.func,
     initialDate: PropTypes.string.isRequired,
+    disabled: PropTypes.bool
 };
