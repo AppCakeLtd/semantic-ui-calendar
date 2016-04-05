@@ -16,14 +16,17 @@ export default class Calendar extends React.Component {
     }
 
     componentDidMount() {
+        var context = this;
+
         $(this.refs.calendar).find('input').val(this.props.initialDate);
         $(this.refs.calendar).calendar({
             type: 'date',
             onChange: (newDate) => {
-                this.props.onChange(newDate.toISOString())
+                if (this.props.onChange) {
+                    this.props.onChange.apply([context, newDate.toISOString()]);
+                }
             }
         });
-        $('.popup').popup();
     }
 
     componentDidUpdate() {
