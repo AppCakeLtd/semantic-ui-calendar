@@ -23,7 +23,7 @@ export default class Calendar extends React.Component {
             type: 'date',
             onChange: (newDate) => {
                 if (this.props.onChange) {
-                    this.props.onChange.apply([context, newDate.toISOString()]);
+                    this.props.onChange.call(context, newDate.toISOString());
                 }
             }
         });
