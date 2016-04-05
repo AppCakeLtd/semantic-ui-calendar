@@ -13,7 +13,8 @@
     "jquery": "^2.2.2",
     "react-inline-css": "^2.1.0",
     "semantic-ui-dropdown": "^2.1.7",
-    "semantic-ui-popup": "^2.1.7"
+    "semantic-ui-popup": "^2.1.7",
+    "semantic-ui-transition": "^2.1.7"
   },
   "peerDependecies": {
     "grunt-semantic-ui": "^0.1.4",

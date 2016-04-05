@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import $ from 'jquery';
+import SUITransition from 'semantic-ui-transition';
 import SUIDropDown from 'semantic-ui-dropdown';
 import SUIPopup from 'semantic-ui-popup';
 import InlineCSS from 'react-inline-css';
@@ -9,8 +10,9 @@ export default class Calendar extends React.Component {
 
     constructor(props) {
         super(props);
-        $.fn.dropdown = SUIDropDown;
+        $.fn.transition = SUITransition;
         $.fn.popup = SUIPopup;
+        $.fn.dropdown = SUIDropDown;
     }
 
     componentDidMount() {
@@ -21,6 +23,7 @@ export default class Calendar extends React.Component {
                 this.props.onChange(newDate.toISOString())
             }
         });
+        $('.popup').popup();
     }
 
     componentDidUpdate() {
