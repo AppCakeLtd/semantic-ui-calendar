@@ -20,7 +20,7 @@ export default class Calendar extends React.Component {
 
         $(this.refs.calendar).find('input').val(this.props.initialDate);
         $(this.refs.calendar).calendar({
-            type: 'date',
+            type: this.props.type || 'date',
             onChange: (newDate) => {
                 if (this.props.onChange) {
                     this.props.onChange.call(context, newDate.toISOString());
@@ -136,5 +136,6 @@ export default class Calendar extends React.Component {
 Calendar.propTypes = {
     onChange: PropTypes.func,
     initialDate: PropTypes.string.isRequired,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    type: PropTypes.string
 };
