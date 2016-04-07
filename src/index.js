@@ -21,7 +21,17 @@ export default class Calendar extends React.Component {
 
         $(this.refs.calendar).find('input').val(moment(this.props.initialDate).format());
         $(this.refs.calendar).calendar({
+            startCalendar: this.props.startCalendar || null,
+            endCalendar: this.props.endCalendar || null,
+            startMode: this.props.startMode || false,
             type: this.props.type || 'date',
+            ampm: this.props.ampm || false,
+            on: this.props.on || null,
+            minDate: this.props.minDate || null,
+            maxDate: this.props.maxDate || null,
+            monthFirst: this.props.monthFirst || false,
+            formatter: this.props.formatter || {},
+            inline: this.props.inline || false,
             onChange: (newDate) => {
                 if (this.props.onChange) {
                     this.props.onChange.call(context, moment(newDate).format());
@@ -138,5 +148,15 @@ Calendar.propTypes = {
     onChange: PropTypes.func,
     initialDate: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
-    type: PropTypes.string
+    type: PropTypes.string,
+    ampm: PropTypes.bool,
+    minDate: PropTypes.date,
+    maxDate: PropTypes.date,
+    startMode: PropTypes.string,
+    monthFirst: PropTypes.bool,
+    formatter: PropTypes.object,
+    inline: PropTypes.bool,
+    on: PropTypes.string,
+    startCalendar: PropTypes.func,
+    endCalendar: PropTypes.func
 };
