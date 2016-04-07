@@ -4,6 +4,7 @@ import SUITransition from 'semantic-ui-transition';
 import SUIDropDown from 'semantic-ui-dropdown';
 import SUIPopup from 'semantic-ui-popup';
 import InlineCSS from 'react-inline-css';
+import moment from 'moment';
 import './semantic-calendar.js';
 
 export default class Calendar extends React.Component {
@@ -23,7 +24,7 @@ export default class Calendar extends React.Component {
             type: this.props.type || 'date',
             onChange: (newDate) => {
                 if (this.props.onChange) {
-                    this.props.onChange.call(context, newDate.toISOString());
+                    this.props.onChange.call(context, moment(newDate).format());
                 }
             }
         });
