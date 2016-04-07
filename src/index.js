@@ -19,7 +19,7 @@ export default class Calendar extends React.Component {
     componentDidMount() {
         var context = this;
 
-        $(this.refs.calendar).find('input').val(this.props.initialDate);
+        $(this.refs.calendar).find('input').val(moment(this.props.initialDate).format());
         $(this.refs.calendar).calendar({
             type: this.props.type || 'date',
             onChange: (newDate) => {
