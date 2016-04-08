@@ -29,12 +29,12 @@ export default class Calendar extends React.Component {
             on: this.props.on || null,
             minDate: this.props.minDate || null,
             maxDate: this.props.maxDate || null,
-            monthFirst: this.props.monthFirst || false,
+            monthFirst: this.props.monthFirst || true,
             formatter: this.props.formatter || {},
             inline: this.props.inline || false,
             onChange: (newDate) => {
                 if (this.props.onChange) {
-                    this.props.onChange.call(context, moment(newDate).format());
+                    this.props.onChange.call(context, newDate.toISOString());
                 }
             }
         });
@@ -150,8 +150,8 @@ Calendar.propTypes = {
     disabled: PropTypes.bool,
     type: PropTypes.string,
     ampm: PropTypes.bool,
-    minDate: PropTypes.date,
-    maxDate: PropTypes.date,
+    minDate: PropTypes.func,
+    maxDate: PropTypes.func,
     startMode: PropTypes.string,
     monthFirst: PropTypes.bool,
     formatter: PropTypes.object,
